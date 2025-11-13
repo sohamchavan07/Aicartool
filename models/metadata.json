@@ -1,0 +1,68 @@
+{
+  "csv_file": "/Users/shdc02/soham_workspace/Aicartool/data/car_price_prediction_.csv",
+  "generated_at": "2025-11-13T11:59:11Z",
+  "feature_order": [
+    "year",
+    "mileage",
+    "engine_size",
+    "condition_score",
+    "brand",
+    "fuel_type",
+    "transmission",
+    "model"
+  ],
+  "defaults": {
+    "engine_size": 3.46524
+  },
+  "encoders": {
+    "brand": {
+      "tesla": 0,
+      "bmw": 1,
+      "audi": 2,
+      "ford": 3,
+      "honda": 4,
+      "mercedes": 5,
+      "toyota": 6
+    },
+    "fuel_type": {
+      "petrol": 0,
+      "electric": 1,
+      "diesel": 2,
+      "hybrid": 3
+    },
+    "transmission": {
+      "manual": 0,
+      "automatic": 1
+    },
+    "model": {
+      "model x": 0,
+      "5 series": 1,
+      "a4": 2,
+      "model y": 3,
+      "mustang": 4,
+      "q7": 5,
+      "q5": 6,
+      "civic": 7,
+      "explorer": 8,
+      "model 3": 9,
+      "fiesta": 10,
+      "x3": 11,
+      "gla": 12,
+      "a3": 13,
+      "x5": 14,
+      "c-class": 15,
+      "e-class": 16,
+      "cr-v": 17,
+      "camry": 18,
+      "accord": 19,
+      "glc": 20,
+      "corolla": 21,
+      "fit": 22,
+      "model s": 23,
+      "prius": 24,
+      "3 series": 25,
+      "rav4": 26,
+      "focus": 27
+    }
+  }
+}

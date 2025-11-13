@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AI Car Price Estimator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body { font-family: Arial, sans-serif; background:#f8f9fa; padding:30px; }
+      .container { background:white; padding:25px; border-radius:10px; max-width:500px; margin:auto; box-shadow:0 4px 8px rgba(0,0,0,0.1); }
+      h1 { text-align:center; color:#333; }
+      label { display:block; margin-top:10px; font-weight:bold; }
+      input, select { width:100%; padding:8px; margin-top:5px; border-radius:5px; border:1px solid #ccc; }
+      button { margin-top:15px; width:100%; padding:10px; background:#007bff; color:white; border:none; border-radius:5px; cursor:pointer; }
+      button:hover { background:#0056b3; }
+      .result { text-align:center; margin-top:20px; font-size:18px; color:green; font-weight:bold; }
+      .error { color:red; text-align:center; margin-top:20px; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🚗 AI Car Price Estimator</h1>
+      <%= form_with url: "/predict", method: :post, local: true do |f| %>
+        <label>Year</label>
+        <%= f.number_field :year, min: 2000, max: 2025, required: true %>
+
+        <label>Engine Size (L)</label>
+        <%= f.number_field :engine_size, step: 0.1, min: 0.5, max: 6.0, required: true %>
+
+        <label>Mileage (km)</label>
+        <%= f.number_field :mileage, step: 100, required: true %>
+
+        <label>Fuel Type</label>
+        <%= f.select :fuel_type, ["Petrol", "Diesel", "Electric", "Hybrid"] %>
+
+        <label>Transmission</label>
+        <%= f.select :transmission, ["Manual", "Automatic"] %>
+
+        <label>Condition</label>
+        <%= f.select :condition, ["New", "Like New", "Used"] %>
+
+        <button type="submit">Estimate Price</button>
+      <% end %>
+
+      <% if @predicted_price %>
+        <div class="result">💰 Estimated Price: ₹<%= @predicted_price %></div>
+      <% end %>
+
+      <% if @error %>
+        <div class="error">Error: <%= @error %></div>
+      <% end %>
+    </div>
+  </body>
+</html>
+
